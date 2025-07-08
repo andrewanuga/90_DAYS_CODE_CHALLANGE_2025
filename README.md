@@ -22,9 +22,9 @@ Fork this repo if u want
 
 ## 🔗 Connect With Me
 Let’s connect and grow together!
-- WhatSapp: [](https://wa.link/of7r8l)
-- Twitter: [](https://x.com/Adakole56Andrew)
-- LinkedIn: [](https://www.linkedin.com/in/andrew-adakole-63462227a/)
+- WhatSapp: [@andrew](https://wa.link/of7r8l)
+- Twitter: [@andrew](https://x.com/Adakole56Andrew)
+- LinkedIn: [@andrew](https://www.linkedin.com/in/andrew-adakole-63462227a/)
 
 ---
 

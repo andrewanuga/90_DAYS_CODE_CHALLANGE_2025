@@ -31,16 +31,17 @@ const GlassIcons: React.FC<GlassIconsProps> = ({ items, className }) => {
 
   return (
     <div
-      className={`flex gap-10 p-10 mb-5 relative bottom-96 flex-wrap  justify-center anton md:grid-cols-3 mx-auto py-[3em] overflow-visible ${
+      className={`flex gap-10 p-10 mb-5 relative bottom-96 flex-wrap justify-center items-center anton md:grid-cols-3 mx-auto py-[em] ${
         className || ""
       }`}
     >
       {items.map((item, index) => (
-        <button
+        <a
           key={index}
           type="button"
           aria-label={item.label}
-          className={`relative cursor-pointer mt-10 bg-transparent flex-col grow min-w-32 max-w-44 h-44 outline-none [perspective:24em] [transform-style:preserve-3d] [-webkit-tap-highlight-color:transparent] group ${
+          href={item.link || '#'}
+          className={`relative top-40 cursor-pointer mt-10 bg-transparent flex-col grow min-w-32 max-w-56 h-44 outline-none [perspective:24em] [transform-style:preserve-3d] [-webkit-tap-highlight-color:transparent] group ${
             item.customClass || ""
           }`}
         >
@@ -69,7 +70,7 @@ const GlassIcons: React.FC<GlassIconsProps> = ({ items, className }) => {
           <span className="absolute top-full left-0 right-0 text-center whitespace-nowrap leading-[2] text-base opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] translate-y-0 group-hover:opacity-100 group-hover:[transform:translateY(20%)]">
             {item.label}
           </span>
-        </button>
+        </a>
       ))}
     </div>
   );

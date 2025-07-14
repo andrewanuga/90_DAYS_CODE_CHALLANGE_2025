@@ -1,18 +1,16 @@
-import { motion, Variants } from "framer-motion";
-import { ReactNode } from "react";
+import { motion } from "framer-motion";
+import type{ ReactNode } from "react";
 
 interface ListProps {
   text: string;
-  isopen?: boolean;
+  isSelected?: boolean;
   icon: ReactNode;
-  variants: Variants; // For Framer Motion animation variants
   onClick?: () => void; // Click handler function
 }
 
-const List = ({ text, icon, variants, onClick }: ListProps) => {
+const List = ({ text, icon ,onClick }: ListProps) => {
   return (
     <motion.div
-      variants={variants}
       initial="hidden"
       whileInView="show"
       className="w-auto border border-violet-700 min-w-[300px] cursor-pointer hover:bg-[#2a2833] max-w-[400px] flex justify-evenly items-center grow rounded-2xl h-auto p-5 bg-[#222] text-[20px]"

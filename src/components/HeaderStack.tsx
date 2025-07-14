@@ -51,56 +51,48 @@ const HeaderStack = () => {
           <List 
             text="Frontend" 
             icon={<VscCode />} 
-            type={SlideUp("left", "tween", 0.15, 1)}
             isSelected={openStack === 'frontend'}
             onClick={() => handleStackToggle('frontend')}
           />
           <List 
             text="Backend" 
             icon={<VscServer />} 
-            type={SlideUp("left", "tween", 0.2, 1)}
             isSelected={openStack === 'backend'}
             onClick={() => handleStackToggle('backend')}
           />
           <List 
             text="Full Stack" 
             icon={<VscTypeHierarchySub />} 
-            type={SlideUp("left", "tween", 0.25, 1)}
             isSelected={openStack === 'fullStack'}
             onClick={() => handleStackToggle('fullStack')}
           />
           <List 
             text="Game Dev" 
             icon={<FaGamepad />} 
-            type={SlideUp("left", "tween", 0.3, 1)}
             isSelected={openStack === 'gameDev'}
             onClick={() => handleStackToggle('gameDev')}
           />
           <List 
             text="AI/ML" 
             icon={<VscHubot />} 
-            type={SlideUp("left", "tween", 0.35, 1)}
             isSelected={openStack === 'ai/Ml'}
             onClick={() => handleStackToggle('ai/Ml')}
           />
           <List 
             text="Blockchain" 
             icon={<VscGitCompare />} 
-            type={SlideUp("left", "tween", 0.4, 1)}
             isSelected={openStack === 'blockchain'}
             onClick={() => handleStackToggle('blockchain')}
           />
           <List 
             text="Cybersecurity" 
-            icon={<VscShield />} 
-            type={SlideUp("left", "tween", 0.45, 1)}
+            icon={<VscShield />}
             isSelected={openStack === 'cybersecurity'}
             onClick={() => handleStackToggle('cybersecurity')}
           />
           <List 
             text="App Dev" 
-            icon={<IoIosApps />} 
-            type={SlideUp("left", "tween", 0.5, 1)}
+            icon={<IoIosApps />}
             isSelected={openStack === 'appDev'}
             onClick={() => handleStackToggle('appDev')}
           />

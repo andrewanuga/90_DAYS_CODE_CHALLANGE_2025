@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import { ComponentType, FC } from "react";
+import { ComponentType } from "react";
 
-function Transition<P>(OgComponent: ComponentType<P>): FC<P> {
+function Transition<P>(OgComponent: ComponentType<P>): ComponentType<P> {
   const strips = 8;
-  return function WrappedComponent(props: P) {
+  const WrappedComponent: ComponentType<P> = (props) => {
     return (
       <>
         <OgComponent {...props} />
@@ -46,6 +46,7 @@ function Transition<P>(OgComponent: ComponentType<P>): FC<P> {
       </>
     );
   };
+  return WrappedComponent;
 }
 
 export default Transition;

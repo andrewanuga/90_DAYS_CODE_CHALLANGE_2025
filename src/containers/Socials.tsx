@@ -1,5 +1,5 @@
 import { FaXTwitter, FaDiscord } from "react-icons/fa6";
-import { FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import GlassIcons from "../components/GlassIcons";
 import Transition from "../constants/Transition";
 import AnimatedText from "../components/AnimatedText";

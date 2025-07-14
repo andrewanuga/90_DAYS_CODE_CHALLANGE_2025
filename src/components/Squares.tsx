@@ -8,15 +8,15 @@ const Squares = ({
   hoverFillColor = '#222',
   className = ''
 }) => {
-  const canvasRef = useRef(null);
-  const requestRef = useRef(null);
-  const numSquaresX = useRef();
-  const numSquaresY = useRef();
-  const gridOffset = useRef({ x: 0, y: 0 });
-  const hoveredSquare = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const requestRef = useRef<number | null>(null);
+  const numSquaresX = useRef<number | null>(null);
+  const numSquaresY = useRef<number | null>(null);  const gridOffset = useRef({ x: 0, y: 0 });
+  const hoveredSquare = useRef<{ x: number; y: number } | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
+    if (!canvas) return;
     const ctx = canvas.getContext('2d');
 
     const resizeCanvas = () => {
@@ -30,6 +30,7 @@ const Squares = ({
     resizeCanvas();
 
     const drawGrid = () => {
+      if (!ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const startX = Math.floor(gridOffset.current.x / squareSize) * squareSize;
@@ -95,21 +96,29 @@ const Squares = ({
       requestRef.current = requestAnimationFrame(updateAnimation);
     };
 
-    const handleMouseMove = (event) => {
+    interface HoveredSquare {
+      x: number;
+      y: number;
+    }
+
+
+    const handleMouseMove = (event: MouseEvent) => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
       const rect = canvas.getBoundingClientRect();
-      const mouseX = event.clientX - rect.left;
-      const mouseY = event.clientY - rect.top;
+      const mouseX: number = event.clientX - rect.left;
+      const mouseY: number = event.clientY - rect.top;
 
-      const startX = Math.floor(gridOffset.current.x / squareSize) * squareSize;
-      const startY = Math.floor(gridOffset.current.y / squareSize) * squareSize;
+      const startX: number = Math.floor(gridOffset.current.x / squareSize) * squareSize;
+      const startY: number = Math.floor(gridOffset.current.y / squareSize) * squareSize;
 
-      const hoveredSquareX = Math.floor((mouseX + gridOffset.current.x - startX) / squareSize);
-      const hoveredSquareY = Math.floor((mouseY + gridOffset.current.y - startY) / squareSize);
+      const hoveredSquareX: number = Math.floor((mouseX + gridOffset.current.x - startX) / squareSize);
+      const hoveredSquareY: number = Math.floor((mouseY + gridOffset.current.y - startY) / squareSize);
 
       if (
         !hoveredSquare.current ||
-        hoveredSquare.current.x !== hoveredSquareX ||
-        hoveredSquare.current.y !== hoveredSquareY
+        (hoveredSquare.current as HoveredSquare).x !== hoveredSquareX ||
+        (hoveredSquare.current as HoveredSquare).y !== hoveredSquareY
       ) {
         hoveredSquare.current = { x: hoveredSquareX, y: hoveredSquareY };
       }
@@ -126,7 +135,9 @@ const Squares = ({
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      cancelAnimationFrame(requestRef.current);
+      if (requestRef.current !== null) {
+        cancelAnimationFrame(requestRef.current);
+      }
       canvas.removeEventListener('mousemove', handleMouseMove);
       canvas.removeEventListener('mouseleave', handleMouseLeave);
     };

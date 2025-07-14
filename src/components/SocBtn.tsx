@@ -1,7 +1,13 @@
+import type { ReactNode } from "react";
 import StarBorder from "./StarBorder"
 import { motion } from "framer-motion"
 
-const SocBtn = ({svg, link, type}) => {
+interface SocBtnProps {
+  svg: ReactNode;
+  link: string;
+  type: any; // For Framer Motion animation variants
+}
+const SocBtn = ({svg, link, type}:SocBtnProps) => {
   return (
     <StarBorder
         as="button"

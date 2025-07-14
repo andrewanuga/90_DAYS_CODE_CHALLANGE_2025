@@ -1,5 +1,3 @@
-import { motion } from "framer-motion"
-import SlideIn from "../constants/SlideIn"
 import SlideUp from "../constants/SlideUp"
 import AnimatedText from "./AnimatedText"
 import StarBorder from "./StarBorder"

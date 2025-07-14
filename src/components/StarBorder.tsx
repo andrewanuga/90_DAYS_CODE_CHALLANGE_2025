@@ -24,10 +24,10 @@ const StarBorder = <T extends React.ElementType = "button">({
   return (
     <Component 
       className={`star-border-container ${className}`} 
-      {...(rest as any)}
+      {...(rest as undefined | React.ComponentPropsWithoutRef<T>)}
       style={{
         padding: `${thickness}px 0`,
-        ...(rest as any).style,
+        ...(rest && (rest as { style?: React.CSSProperties }).style ? (rest as { style?: React.CSSProperties }).style : {}),
       }}
     >
       <div

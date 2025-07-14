@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 
-function TypingText({ text , speed = 100 }) {
+interface TypingTextProps {
+  text: string,
+  speed: number
+}
+function TypingText({ text , speed = 100 }:TypingTextProps) {
   const [displayedText, setDisplayedText] = useState('');
   const [index, setIndex] = useState(0);
 

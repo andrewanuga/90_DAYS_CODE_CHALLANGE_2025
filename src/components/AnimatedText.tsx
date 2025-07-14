@@ -1,6 +1,13 @@
 import { motion } from "framer-motion"
 
-const AnimatedText = ({ text , type, mycss }) => {
+interface AnimatedTextProps {
+  text: string;
+  type: any;
+  mycss: string;
+}
+
+
+const AnimatedText = ({ text , type, mycss }:AnimatedTextProps) => {
   return (
         <motion.p
         variants={type}

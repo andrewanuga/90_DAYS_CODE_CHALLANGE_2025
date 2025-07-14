@@ -18,7 +18,7 @@ const Socials = () => {
         <AnimatedText text={"Our Socials"} type={SlideUp("left", "tween", 0.2, 1)} mycss="text-bold uppercase text-[30px] text-[#fff] md:text-[60px]"/>
     
       </div>
-      <GlassIcons items={items} className="custom-class"/>
+      <GlassIcons items={items} className="custom-class" />
     </div>
   )
 }

@@ -5,6 +5,7 @@ export interface GlassIconsItem {
   color: string;
   label: string;
   customClass?: string;
+  link?: string;
 }
 
 export interface GlassIconsProps {
